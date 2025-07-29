@@ -2431,9 +2431,9 @@ CMD ["{self._get_docker_cmd(plan.framework)}"]
     def _get_docker_cmd(self, framework: PythonFramework) -> str:
         """Get Docker CMD for framework."""
         cmds = {
-            PythonFramework.FASTAPI: 'uvicorn', 'src.main:app', '--host', '0.0.0.0', '--port', '8000',
-            PythonFramework.DJANGO: 'gunicorn', 'config.wsgi:application', '--bind', '0.0.0.0:8000',
-            PythonFramework.FLASK: 'gunicorn', 'app:app', '--bind', '0.0.0.0:8000',
+            PythonFramework.FASTAPI: ['uvicorn', 'src.main:app', '--host', '0.0.0.0', '--port', '8000'],
+            PythonFramework.DJANGO: ['gunicorn', 'config.wsgi:application', '--bind', '0.0.0.0:8000'],
+            PythonFramework.FLASK: ['gunicorn', 'app:app', '--bind', '0.0.0.0:8000'],
         }
         return ' '.join(cmds.get(framework, ['python', 'main.py']))
     
