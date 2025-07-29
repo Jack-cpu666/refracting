@@ -52,7 +52,7 @@ from abc import ABC, abstractmethod
 from enum import Enum, auto
 import builtins
 
-from fastapi import FastAPI, File, UploadFile, Request, BackgroundTasks, HTTPException
+from fastapi import FastAPI, File, Form, UploadFile, Request, BackgroundTasks, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
